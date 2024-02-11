@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Featured Products</h2>
+            <!-- Add product cards here -->
+        </section>
+        <section>
+            <h2>Latest News</h2>
+            <!-- Add news items here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<!-- Add the product cards -->
+<section>
+  <h2 class="display-6 mb-4">Featured Products</h2>
+  <!-- Add the product card component -->
+  <div class="row">
+    <div class="col-md-4">
+      <!-- Include the product-card.html file -->
+      <object data="product-card.html" type="text/html"></object>
+    </div>
+    <div class="col-md-4">
+      <!-- Add more product cards here -->
+    </div>
+    <div class="col-md-4">
+      <!-- Add more product cards here -->
+    </div>
+  </div>
+</section>
+<!-- Add the Nunjucks runtime script -->
+<script src="https://unpkg.com/nunjucks@3.2.3/dist/nunjucks.min.js"></script>
+
+<!-- Add the Nunjucks template -->
+<script id="product-card-template" type="text/x-nunjucks-template">
+  {% from 'product-card.njk' import productCard %}
+  {{ productCard({
+    product: {
+      image: 'product-image.jpg',
+      name: 'Product Name',
+      description: 'Product Description',
+      price: 99.99
+    }
+  }) }}
+</script>
+
+<!-- Add the product cards -->
+<section>
+  <h2 class="display-6 mb-4">Featured Products</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- Render the product card template -->
+      <div id="product-card-1"></div>
+      <script>
+        const template = document.getElementById('product-card-template').innerHTML;
+        const env = new nunjucks.Environment(new nunjucks.WebLoader('.'));
+        env.addGlobal('productCard', productCard);
+        const html = env.renderString(template, {
+          product: {
+            image: 'product-image.jpg',
+            name: 'Product Name 1',
+            description: 'Product Description 1',
+            price: 49.99
+          }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <!-- Add the Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s4Wz6iJgD/+ub2oU" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Add the header and navigation bar -->
+    <header class="container-fluid p-2 bg-light">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="display-5">My Website</h1>
+            </div>
+            <div class="col-6 text-end">
+                <nav>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Add the main content -->
+    <main class="container-fluid p-4">
+        <section class="row">
+            <div class="col-md-4">
+                <h2 class="display-6 mb-4">Featured Products</h2>
+                <!-- Add product cards here -->
+            </div>
+            <div class="col-md-8">
+                <h2 class="display-6 mb-4">Latest News</h2>
+                <!-- Add news items here -->
+            </div>
+        </section>
+    </main>
+    <!-- Add the footer -->
+    <footer class="container-fluid p-2 bg-light text-center">
+        <p class="lead">&copy; 2022 My Website. All rights reserved.</p>
+    </footer>
+    <!-- Add the Bootstrap JavaScript link -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBud7RduPuemT//+jJXB16zg6i8UQD3lV5uDC3Yc7bz1Eeow" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+</body>
+</html>
+<div class="card h-100" style="width: 18rem;">
+  <img src="product-image.jpg" class="card-img-top" alt="Product Image">
+  <div
+<!-- Add the contact form -->
+<section class="row">
+  <div class="col-md-8">
+    <h2 class="display-6 mb-4">Contact Us</h2>
+    <form id="contactForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <!-- Add the Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s4Wz6iJgD/+ub2oU" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Add the header and navigation bar -->
+    <header class="container-fluid p-2 bg-light">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="display-5">My Website</h
